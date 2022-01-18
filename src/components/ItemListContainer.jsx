@@ -1,11 +1,12 @@
 
 
-const ItemListContainer =(props)=>{
+const ItemListContainer = ({ name }) => {
     return (
-        <p>
-            Este es mi componente {props.name}
-        </p>
-
+        <span>
+            <p>
+                Este es mi componente {name}
+            </p>
+        </span>
     );
 }
 
