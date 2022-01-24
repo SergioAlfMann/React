@@ -19,13 +19,10 @@ const Navbar = () => {
             <li class="nav-item">
               <a class="nav-link" href="#">Opcion-3</a>
             </li>
-
-
           </ul>
         </div>
         <form class="d-flex">
           <CardWidget class="form-control me-2" />
-
         </form>
       </div>
     </nav>

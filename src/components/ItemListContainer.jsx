@@ -1,11 +1,9 @@
-
+import ItemList from "./ItemList";
 
 const ItemListContainer = ({ name }) => {
     return (
         <span>
-            <p>
-                Este es mi componente {name}
-            </p>
+            <ItemList />
         </span>
     );
 }
