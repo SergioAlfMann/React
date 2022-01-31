@@ -9,37 +9,37 @@ const ItemList = () => {
         let is_ok = true;
         const data = [
             {
-                id: 30,
+                id: 1,
                 name: "Agua Con Gas 1,5 lts",
                 stock: 86,
                 cost: 45,
             },
             {
-                id: 29,
+                id: 2,
                 name: "Agua Sin Gas 1,5 lts",
                 stock: 100,
                 cost: 140,
             },
             {
-                id: 76,
+                id: 3,
                 name: "Coca Cola 1,5 lts",
                 stock: 92,
                 cost: 200,
             },
             {
-                id: 76,
+                id: 4,
                 name: "Agua Saborizada 1 lts",
                 stock: 92,
                 cost: 180,
             },
             {
-                id: 76,
+                id: 5,
                 name: "Gancia  750 ml",
                 stock: 92,
                 cost: 350,
             },
             {
-                id: 76,
+                id: 6,
                 name: "Sta Isabel 750 ml",
                 stock: 92,
                 cost: 350,
@@ -70,7 +70,8 @@ const ItemList = () => {
                 <div class="row">
                     {
                         datos.map(producto => (
-                            <Item item={producto}></Item>
+                            <Item  key={producto.id} item={producto}></Item>
+                           
                         ))
                     }
                  </div>
