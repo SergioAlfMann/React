@@ -1,23 +1,24 @@
+import { Link } from 'react-router-dom';
 import CardWidget from './CardWidget';
 
 const Navbar = () => {
   return (
     <nav class="navbar navbar-expand-xl navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Mi-Navbar</a>
+        <Link to="/" className='navbar-brand'>E-COMMERCE</Link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarWithDropdown" aria-controls="navbarWithDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse show" id="navbarWithDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Opcion-1</a>
+              <Link to="/category/9" className='nav-link'>Sin Alcohol</Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Opcion-2</a>
+              <Link to="/category/1" className='nav-link'>Vinos</Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Opcion-3</a>
+              <Link to="/category/5" className='nav-link'>Licores</Link>
             </li>
           </ul>
         </div>

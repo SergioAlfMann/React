@@ -1,11 +1,11 @@
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const ItemDetail = ({ item }) => {
     return (
 
         <Card id={item.id} style={{ width: '18rem' }}>
             <Card.Body>
-                <Card.Img variant="top" src={item.image[0]} />
+                <Card.Img variant="top" src={item?.image?.[0]} />
 
                 <Card.Title>{item.name}</Card.Title>
 
