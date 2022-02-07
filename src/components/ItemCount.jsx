@@ -1,7 +1,7 @@
 import {  useState } from "react";
 
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
     const [cantidad, setCantidad] = useState (initial); //HOOKS    
     const agregar = () => {
          if (cantidad < stock) {
@@ -13,7 +13,6 @@ const ItemCount = ({ stock, initial }) => {
         }
     }
 
-
     const quitar = () => {
         if (cantidad !== initial) {
             setCantidad(cantidad - 1);
@@ -24,12 +23,6 @@ const ItemCount = ({ stock, initial }) => {
         console.log(cantidad);
     }
 
-
-    const itemsSeleccionados=()=>{
-       alert("Se agregaron " + cantidad + " items");
-    }
-
-
     return (
      
     <div class="container-fluid">
@@ -38,7 +31,11 @@ const ItemCount = ({ stock, initial }) => {
              <button type="button" class="btn btn-primary" onClick={quitar}>-</button>
         </p>
         <p>
-         <button type="button" class="btn btn-success" onClick={itemsSeleccionados}>Agregar elementos</button>   
+         {
+            stock
+            ? <button type="button" class="btn btn-success" onClick={()=>onAdd(cantidad)}>Agregar al Carrito</button>   
+            : <button type="button" class="disabled" >Agregar al Carrito</button> 
+         }
         </p>
     </div>
 

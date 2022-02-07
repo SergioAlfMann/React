@@ -15,7 +15,11 @@ const ItemDetailContainer = () => {
     }, []);
 
    return (
-       <ItemDetail item={dato} />
+       
+          dato?.id
+          ? <ItemDetail item={dato} />
+          : <p> Cargando ...</p> 
+      
    )
 
 }
