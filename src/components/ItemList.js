@@ -4,8 +4,6 @@ import { Container } from "react-bootstrap";
 const ItemList = ( { items }) => {
     return (
         <Container fluid>
-    
-           
             <div class="col">
                 <div class="row">
                     {
@@ -16,8 +14,7 @@ const ItemList = ( { items }) => {
                         :<p> Cargando ...</p>
                     }
                  </div>
-            </div>
-        
+            </div>        
         </Container>
         );
 }

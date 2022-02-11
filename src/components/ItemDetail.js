@@ -1,15 +1,19 @@
 import { Card } from 'react-bootstrap';
 import ItemCount from './ItemCount';
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import { Link } from 'react-router-dom';
 import { Container } from "react-bootstrap";
+import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({ item }) => {
     const [estaAgregado, setEstaAgregado] = useState (false); 
+    const test = useContext(CartContext);
 
     const itemsSeleccionados=(cantidad)=>{
-        alert("Se agregaron " + cantidad + " items");
+        //alert("Se agregaron " + cantidad + " items");
+        test.addToCart(item, cantidad);
         setEstaAgregado(true);
+
      }
     return (
         <Container fluid>

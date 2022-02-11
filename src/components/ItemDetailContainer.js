@@ -5,7 +5,7 @@ import { data } from "../datos/productos"
 import customFetch from "../utils/customFetch";
 
 const ItemDetailContainer = () => {
-    const [dato, setDato] = useState([]);
+    const [dato, setDato] = useState({});
     const urlParam = useParams();
 
     useEffect(() => {
