@@ -49,6 +49,18 @@ const ProductPrice = styled.div`
   font-weight: 200;
 `;
 
+const TotalPrice = styled.div`
+  font-size: 30px;
+  font-weight: 200;
+`;
+
+const TotalGeneral = styled.div`
+  font-size: 30px;
+  font-weight: 200;
+  
+`;
+
+
 const ProductAmount = styled.div`
 font-size: 24px;
 margin: 5px;
@@ -64,7 +76,7 @@ margin: 20px;
 
 export{
     WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail,
-    ProductPrice, ProductAmount, ProductAmountContainer
+    ProductPrice, ProductAmount, ProductAmountContainer, TotalPrice, TotalGeneral
 
 }
 

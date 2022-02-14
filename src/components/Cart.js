@@ -1,11 +1,15 @@
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductAmountContainer, ProductAmount, ProductPrice } from './styledComponents';
+import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductAmountContainer, ProductAmount, ProductPrice, TotalPrice, TotalGeneral } from './styledComponents';
 
 const Cart = () => {
     const test = useContext(CartContext);
+    const total =  test.cartList.reduce(
+        (previousValue, currentValue) => previousValue + (currentValue.qty * currentValue.cost)
+        , 0)
 
     return (
+        
         <WrapperCart>
             <TitleCart>YOUR CART</TitleCart>
             <button onClick={test.removeItems}>Eliminar Todos</button>
@@ -26,13 +30,16 @@ const Cart = () => {
                             <ProductAmountContainer>
                             <ProductAmount>{item.qty} items</ProductAmount>
                             </ProductAmountContainer>
-                            <ProductPrice>$ {item.cost} each</ProductPrice>
+                            <ProductPrice>$ {item.cost} Cada Producto</ProductPrice>
+                            <TotalPrice>${item.qty * item.cost} Sub-Total</TotalPrice>                            
                         </PriceDetail>
-                    </Product>)) 
-                }
-                    
-            </ContentCart>
-        </WrapperCart>
+                    </Product>))            
+                }  
+                <TotalGeneral>
+                   Total General {total}
+                </TotalGeneral>              
+            </ContentCart>        
+        </WrapperCart>        
     );
 }
 

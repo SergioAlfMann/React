@@ -7,6 +7,8 @@ import ItemList from "./ItemList";
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([]);
     const urlParam = useParams();
+    
+   // const { idCategory } = useParams;
 
     useEffect(() => {
         customFetch(2000, data.filter(item => {
@@ -15,7 +17,7 @@ const ItemListContainer = () => {
         }))
         .then(result => setDatos(result))
         .catch(err => console.log(err))
-    }, [datos]);
+    }, [urlParam]);
 
     return (
         <span>

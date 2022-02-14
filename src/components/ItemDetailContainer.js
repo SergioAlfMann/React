@@ -14,12 +14,10 @@ const ItemDetailContainer = () => {
         .catch(err => console.log(err))
     }, []);
 
-   return (
-       
+   return (      
           dato?.id
           ? <ItemDetail item={dato} />
-          : <p> Cargando ...</p> 
-      
+          : <p> Cargando ...</p>       
    )
 
 }

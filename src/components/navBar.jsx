@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
+  import { Link } from 'react-router-dom';
 import CardWidget from './CardWidget';
 
 const Navbar = () => {
   return (
     <nav class="navbar navbar-expand-xl navbar-light bg-light">
-      <div class="container-fluid">
+      <div class="container">
         <Link to="/" className='navbar-brand'>E-COMMERCE</Link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarWithDropdown" aria-controls="navbarWithDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,9 @@ const Navbar = () => {
           </ul>
         </div>
         <form class="d-flex">
+        <Link to="/cart" className='nav-link'>
           <CardWidget class="form-control me-2" />
+        </Link>         
         </form>
       </div>
     </nav>

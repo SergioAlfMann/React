@@ -17,8 +17,8 @@ const ItemDetail = ({ item }) => {
      }
     return (
         <Container fluid>
-            <div className='row'>
-                <div className='col'>
+            <div class='row'>
+                <div class='col'>
                     <Card id={item.id} style={{ width: '18rem' }}>
                         <Card.Body>
                             <Card.Img variant="top" src={item?.image?.[0]} />
@@ -33,7 +33,7 @@ const ItemDetail = ({ item }) => {
                         </Card.Body>           
                     </Card>
                 </div>
-                <div className='col'>
+                <div class='col'>
                     {
                     estaAgregado
                     ? <Link to={"/cart"}>Finalizar Compra</Link>  
