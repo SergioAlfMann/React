@@ -6,13 +6,11 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     const agregar = () => {
          if (cantidad < stock) {
              setCantidad (cantidad + 1);
-             console.log(cantidad);
          }
          else {
              console.log("No existen mas elementos en stock")
         }
     }
-
     const quitar = () => {
         if (cantidad !== initial) {
             setCantidad(cantidad - 1);
@@ -20,7 +18,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         else {
             console.log("Se quitaron todos los elementos")
         }    
-        console.log(cantidad);
     }
 
     return (

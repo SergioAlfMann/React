@@ -8,9 +8,7 @@ import { CartContext } from '../context/CartContext';
 const ItemDetail = ({ item }) => {
     const [estaAgregado, setEstaAgregado] = useState (false); 
     const test = useContext(CartContext);
-
     const itemsSeleccionados=(cantidad)=>{
-        //alert("Se agregaron " + cantidad + " items");
         test.addToCart(item, cantidad);
         setEstaAgregado(true);
 
@@ -21,7 +19,7 @@ const ItemDetail = ({ item }) => {
                 <div class='col'>
                     <Card id={item.id} style={{ width: '18rem' }}>
                         <Card.Body>
-                            <Card.Img variant="top" src={item?.image?.[0]} />
+                            <Card.Img variant="top" src={item?.image} />
 
                             <Card.Title>{item.name}</Card.Title>
 
@@ -41,10 +39,7 @@ const ItemDetail = ({ item }) => {
                     }
                 </div>
             </div>    
-
-        
         </Container> 
-
     );
 }
 

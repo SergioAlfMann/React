@@ -12,13 +12,13 @@ const Navbar = () => {
         <div class="collapse navbar-collapse show" id="navbarWithDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <Link to="/category/9" className='nav-link'>Sin Alcohol</Link>
+              <Link to="/category/JvJ74ipJJyt1QZLr3tPS" className='nav-link'>Sin Alcohol</Link>
             </li>
             <li class="nav-item">
-              <Link to="/category/1" className='nav-link'>Vinos</Link>
+              <Link to="/category/8bv8FfxIPOxDbB7tw2bG" className='nav-link'>Vinos</Link>
             </li>
             <li class="nav-item">
-              <Link to="/category/5" className='nav-link'>Licores</Link>
+              <Link to="/category/BGZhDyErH7Ltl1wbsouj" className='nav-link'>Licores</Link>
             </li>
           </ul>
         </div>

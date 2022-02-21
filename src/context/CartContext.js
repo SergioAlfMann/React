@@ -12,7 +12,7 @@ const CartContextProvider = ({children}) => {
                 ...cartList,
                 {
                     id: item.id,
-                    image: item.image[0],
+                    image: item.image,
                     name: item.name,
                     cost: item.cost,
                     qty: cantidad
@@ -22,6 +22,9 @@ const CartContextProvider = ({children}) => {
         else 
         {    
             found.qty += cantidad;
+            setCartList([
+                ...cartList
+            ]);
         }
     }
     
