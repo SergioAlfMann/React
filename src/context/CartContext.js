@@ -28,15 +28,35 @@ const CartContextProvider = ({children}) => {
         }
     }
     
-    const removeItems = () =>{
+    const removeItems = () => {
         setCartList([]);
     }
 
     const removeItem = (id) => {
         setCartList(cartList.filter(item => item.id !== id))
     } 
+
+    const calcTotalItem = (idItem) => {
+        let index = cartList.map(item => item.id).indexOf(idItem);
+        return cartList[index].cost * cartList[index].qty;
+    }
+
+    const calcSubTotal = () => {
+        let totalItem = cartList.map(item => calcTotalItem(item.id));
+        return totalItem.reduce((previousValue, currentValue) => previousValue + currentValue);
+    }
+
+    const calcTaxes = () => {
+        return calcSubTotal() * 0.21;
+    }
+
+    const calcTotal = () => {
+        return calcSubTotal() + calcTaxes();
+    }
+
     return (
-        <CartContext.Provider value={{cartList, removeItems, removeItem, addToCart}}>
+        <CartContext.Provider value={{cartList, removeItems, removeItem, addToCart, calcTotalItem,
+             calcSubTotal, calcTaxes, calcTotal }}>
                 {children}
         </CartContext.Provider>
     )
