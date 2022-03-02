@@ -11,7 +11,13 @@ const ItemList = ( { items }) => {
                          ? items.map(producto => (
                             <Item  key={producto.id} item={producto}></Item>                           
                         ))
-                        :<p> Cargando ...</p>
+                        :<div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                          <span class="sr-only"></span>
+                        </div>
+                      </div>
+                      
+                      
                     }
                  </div>
             </div>        

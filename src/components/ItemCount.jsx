@@ -2,7 +2,7 @@ import {  useState } from "react";
 
 
 const ItemCount = ({ stock, initial, onAdd }) => {
-    const [cantidad, setCantidad] = useState (initial); //HOOKS    
+    const [cantidad, setCantidad] = useState (initial); 
     const agregar = () => {
          if (cantidad < stock) {
              setCantidad (cantidad + 1);
