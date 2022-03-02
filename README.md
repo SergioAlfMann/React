@@ -14,6 +14,6 @@ Para poder ejecutar el proyecto deberás clonar el mismo desde el repositorio o 
 
 ## Autor
 
-* ** Sergio Mann ** - *Analista de sistemas*, bajo la supervisión y seguimiento de los tutores de CODERHOUSE y el profesor
-* **Alex Marin Mendez** - *FullStack Web Developer*
+* ** Sergio Mann ** - bajo la supervisión y seguimiento de los tutores de CODERHOUSE y el profesor * **Alex Marin Mendez** - *FullStack Web Developer*
+
 
