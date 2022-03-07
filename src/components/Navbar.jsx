@@ -1,11 +1,8 @@
   import { Link } from 'react-router-dom';
   import CardWidget from './CardWidget';
-  //import { Container, Navbar } from 'react-bootstrap';
 
  const Navbar = () => {
   return (
-
-  
     <nav class="navbar navbar-expand-xl navbar-light bg-light">
       <div class="container">
         <Link to="/" className='navbar-brand'>E-COMMERCE</Link>

@@ -36,6 +36,11 @@ const CartContextProvider = ({children}) => {
         setCartList(cartList.filter(item => item.id !== id))
     } 
 
+    const calcQty = (idItem) => {
+        let item = cartList.find(item => item.id === idItem);
+        return item ? item.qty : 0;
+    }
+
     const calcTotalItem = (idItem) => {
         let index = cartList.map(item => item.id).indexOf(idItem);
         return cartList[index].cost * cartList[index].qty;
@@ -56,7 +61,7 @@ const CartContextProvider = ({children}) => {
 
     return (
         <CartContext.Provider value={{cartList, removeItems, removeItem, addToCart, calcTotalItem,
-             calcSubTotal, calcTaxes, calcTotal }}>
+             calcSubTotal, calcTaxes, calcTotal, calcQty }}>
                 {children}
         </CartContext.Provider>
     )

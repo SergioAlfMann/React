@@ -31,7 +31,7 @@ export const firestoreFetchOne = async (idItem) => {
       }
       return result;
     } else {
-      console.log("Producto no encontrado");
+      throw("Producto no encontrado");
     }
 }
 
