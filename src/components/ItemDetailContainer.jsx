@@ -5,22 +5,26 @@ import { firestoreFetchOne } from "../utils/firebaseFetch";
 
 const ItemDetailContainer = () => {
     const [dato, setDato] = useState({});
+    const [existeProducto, setExisteProducto] = useState(true);
     const { idItem } = useParams();
 
     useEffect(() => {
         firestoreFetchOne(idItem)
             .then(result => setDato(result))
-            .catch(err => console.log(err))
-    }, []);
+            .catch(() => {
+                setExisteProducto(false);
+            })
+    }, [idItem, existeProducto]);
    return (      
           dato?.id
           ? <ItemDetail item={dato} />
-          : <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only"></span>
-                </div>
-            </div>
-             
+          : (existeProducto === true ? 
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only"></span>
+                    </div>
+                </div> :
+                <div class="d-flex justify-content-center">El producto no existe.</div>)             
    )
 
 }

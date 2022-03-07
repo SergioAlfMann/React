@@ -1,14 +1,17 @@
-import {  useState } from "react";
+import {  useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ item, stock, initial, onAdd }) => {
+    const cart = useContext(CartContext);
     const [cantidad, setCantidad] = useState (initial); 
+    const qtyItem = cart.calcQty(item);
     const agregar = () => {
-         if (cantidad < stock) {
+        console.log(qtyItem)
+         if (cantidad < (stock - qtyItem)) {
              setCantidad (cantidad + 1);
          }
-         else {
-             console.log("No existen mas elementos en stock")
+         else {   
+             alert("No existen más elementos en stock")
         }
     }
     const quitar = () => {
@@ -16,7 +19,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             setCantidad(cantidad - 1);
         }
         else {
-            console.log("Se quitaron todos los elementos")
+            alert("Se quitaron todos los elementos")
         }    
     }
 
@@ -24,12 +27,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
      
     <div class="container-fluid">
         <p className="itemCount">
-             <button type="button" class="btn btn-primary" onClick={agregar}>+</button>   {cantidad}
-             <button type="button" class="btn btn-primary" onClick={quitar}>-</button>
+             <button type="button" class="btn btn-primary" onClick={quitar}>-</button> {cantidad}
+             <button type="button" class="btn btn-primary" onClick={agregar}>+</button>  
+            
         </p>
         <p>
          {
-            stock
+            ( stock - qtyItem ) 
             ? <button type="button" class="btn btn-success" onClick={()=>onAdd(cantidad)}>Agregar al Carrito</button>   
             : <button type="button" class="disabled" >Agregar al Carrito</button> 
          }

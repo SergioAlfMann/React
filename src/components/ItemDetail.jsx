@@ -7,16 +7,15 @@ import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({ item }) => {
     const [estaAgregado, setEstaAgregado] = useState (false); 
-    const test = useContext(CartContext);
+    const cart = useContext(CartContext);
     const itemsSeleccionados=(cantidad)=>{
-        test.addToCart(item, cantidad);
+        cart.addToCart(item, cantidad);
         setEstaAgregado(true);
-
      }
     return (
         <Container fluid>
-            <div class='row'>
-                <div class='col'>
+            <div className='row'>
+                <div className='col'>
                     <Card id={item.id} style={{ width: '18rem' }}>
                         <Card.Body>
                             <Card.Img variant="top" src={item?.image} />
@@ -31,11 +30,11 @@ const ItemDetail = ({ item }) => {
                         </Card.Body>           
                     </Card>
                 </div>
-                <div class='col'>
+                <div className ='col'>
                     {
                     estaAgregado
                     ? <Link to={"/cart"}>Finalizar Compra</Link>  
-                    : <ItemCount stock={item.stock} initial={1} onAdd={itemsSeleccionados} />
+                    : <ItemCount item={item.id} stock={item.stock} initial={1} onAdd={itemsSeleccionados} />
                     }
                 </div>
             </div>    
