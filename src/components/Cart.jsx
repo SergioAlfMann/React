@@ -1,69 +1,92 @@
-import { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
-import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductAmountContainer, 
-        ProductAmount, ProductPrice, TotalPrice, TotalGeneral, SubTotalGeneral, Taxes, Top, TopButton, TopText } from './styledComponents';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import {
+  WrapperCart,
+  TitleCart,
+  ContentCart,
+  Product,
+  ProductDetail,
+  ImageCart,
+  Details,
+  PriceDetail,
+  ProductAmountContainer,
+  ProductAmount,
+  TotalGeneral,
+  SubTotalGeneral,
+  Taxes,
+  Top,
+  TopText,
+} from "./styledComponents";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Trash } from "react-bootstrap-icons";
 
 const Cart = () => {
-    const cart = useContext(CartContext);
+  const cart = useContext(CartContext);
 
-    return (
-        
-        <WrapperCart>
-            <TitleCart>YOUR CART</TitleCart>
+  return (
+    <WrapperCart>
+      <TitleCart>TU COMPRA</TitleCart>
 
-            <Top>
-                <Link to='/'><TopButton >Continuar comprando</TopButton></Link>
-                {
-                    (cart.cartList.length > 0)
-                    ? <TopButton type="filled" onClick={cart.removeItems}>Eliminar Todos</TopButton>
-                    : <TopText>El carrito de compras está vacío.</TopText>
-                }
-            </Top>
-
-        
-            <ContentCart>
-                {
-
-                    cart.cartList.length > 0 && cart.cartList?.map( item => (
-                    <Product>
-                        <ProductDetail>
-                            <ImageCart src={item.image} />
-                            <Details>
-                            <span>
-                                <b>Producto:</b>{item.name}
-                            </span>
-                            <button onClick={()=> cart.removeItem(item.id)}>Eliminar Este Producto</button>
-                            </Details>
-                        </ProductDetail>
-                        <PriceDetail>
-                            <ProductAmountContainer>
-                            <ProductAmount>{item.qty} items</ProductAmount>
-                            </ProductAmountContainer>
-                            <ProductPrice>$ {item.cost} Cada Producto</ProductPrice>
-                            <TotalPrice>$ {cart.calcTotalItem(item.id)} Sub-Total</TotalPrice>                            
-                        </PriceDetail>
-                    </Product>))            
-                }  
-                {
-                    cart.cartList.length > 0 && 
-                    <>
-                        <SubTotalGeneral>
-                        SubTotal $ {cart.calcSubTotal()}
-                        </SubTotalGeneral>
-                        <Taxes>
-                        Impuestos $ {cart.calcTaxes()}
-                        </Taxes>
-                        <TotalGeneral>
-                        Total $ {cart.calcTotal()}
-                        </TotalGeneral>
-                        <Link to={'/checkout'}><Button>Checkout now</Button></Link>     
-                    </>
-                }
-            </ContentCart>        
-        </WrapperCart>        
-    );
-}
+      <Top>
+        <Link to="/">
+          <Button variant="outline-secondary">Continuar comprando</Button>
+        </Link>
+        {cart.cartList.length > 0 ? (
+          <Button variant="danger" onClick={cart.removeItems}>
+            Eliminar Todos
+          </Button>
+        ) : (
+          <TopText>El carrito de compras está vacío.</TopText>
+        )}
+      </Top>
+      <hr />
+      <ContentCart>
+        {cart.cartList.length > 0 &&
+          cart.cartList?.map((item) => (
+            <>
+              <Product id={item.id}>
+                <ProductDetail>
+                  <ImageCart src={item.image} />
+                  <Details>
+                    <span>
+                      <b>Producto:</b>
+                      {item.name}
+                    </span>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <ProductAmount>{item.qty} items</ProductAmount>
+                    <ProductAmount>Precio Unidad: ${item.cost} </ProductAmount>
+                    <ProductAmount>
+                      Subtotal: ${cart.calcTotalItem(item.id)}
+                    </ProductAmount>
+                    <Button
+                      variant="outline-danger"
+                      onClick={() => cart.removeItem(item.id)}
+                    >
+                      <Trash />
+                    </Button>
+                  </ProductAmountContainer>
+                </PriceDetail>
+              </Product>
+              <hr />
+            </>
+          ))}
+        {cart.cartList.length > 0 && (
+          <>
+            <SubTotalGeneral>Subtotal: ${cart.calcSubTotal()}</SubTotalGeneral>
+            <Taxes>Impuestos: ${cart.calcTaxes()}</Taxes>
+            <TotalGeneral>Total: ${cart.calcTotal()}</TotalGeneral>
+            <Link to={"/checkout"}>
+              <Button variant="secondary">Comprar</Button>
+            </Link>
+          </>
+        )}
+      </ContentCart>
+    </WrapperCart>
+  );
+};
 
 export default Cart;

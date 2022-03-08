@@ -1,28 +1,22 @@
 import Item from "./Item";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 
-const ItemList = ( { items }) => {
-    return (
-        <Container fluid>
-            <div class="col">
-                <div class="row">
-                    {
-                         items.length > 0
-                         ? items.map(producto => (
-                            <Item  key={producto.id} item={producto}></Item>                           
-                        ))
-                        :<div class="d-flex justify-content-center">
-                        <div class="spinner-border" role="status">
-                          <span class="sr-only"></span>
-                        </div>
-                      </div>
-                      
-                      
-                    }
-                 </div>
-            </div>        
-        </Container>
-        );
-}
+const ItemList = ({ items }) => {
+  return (
+    <Container fluid>
+      <Row className="justify-content-md-center">
+        {items.length > 0 ? (
+          items.map((producto) => (
+            <Col>
+              <Item id={producto.id} item={producto}></Item>
+            </Col>
+          ))
+        ) : (
+          <Spinner animation="border" className="justify-content-md-center" />
+        )}
+      </Row>
+    </Container>
+  );
+};
 
 export default ItemList;

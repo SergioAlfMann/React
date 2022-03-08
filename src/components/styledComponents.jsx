@@ -4,8 +4,8 @@ const WrapperCart = styled.div`
     padding: 20px;
 `;
 
-const TitleCart = styled.h1`
-    font-weight: 300;
+const TitleCart = styled.h3`
+    font-weight: 200;
     text-align: center;
 `;
 
@@ -45,42 +45,44 @@ const PriceDetail = styled.div`
 `;
 
 const ProductPrice = styled.div`
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 200;
 `;
 
 const TotalPrice = styled.div`
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 200;
 `;
 
 const TotalGeneral = styled.div`
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 200;
   
 `;
 
 const SubTotalGeneral = styled.div`
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 200;
   
 `;
 
 const Taxes = styled.div`
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 200;
   
 `;
 
 
 const ProductAmount = styled.div`
-font-size: 24px;
+font-size: 16px;
+font-weight: 200;
 margin: 5px;
 `;
 
 const ProductAmountContainer = styled.div`
 display: flex;
 align-items: center;
+flex-direction: column;
 margin: 20px;
 `;
 

@@ -1,4 +1,4 @@
-import { Card } from 'react-bootstrap';
+import { Card, Row, Col, Button } from 'react-bootstrap';
 import ItemCount from './ItemCount';
 import {  useContext, useState } from "react";
 import { Link } from 'react-router-dom';
@@ -14,8 +14,8 @@ const ItemDetail = ({ item }) => {
      }
     return (
         <Container fluid>
-            <div className='row'>
-                <div className='col'>
+            <Row className="justify-content-md-center">
+                <Col md="auto">
                     <Card id={item.id} style={{ width: '18rem' }}>
                         <Card.Body>
                             <Card.Img variant="top" src={item?.image} />
@@ -29,15 +29,15 @@ const ItemDetail = ({ item }) => {
                             </Card.Text>
                         </Card.Body>           
                     </Card>
-                </div>
-                <div className ='col'>
+                </Col>
+                <Col md="auto">
                     {
                     estaAgregado
-                    ? <Link to={"/cart"}>Finalizar Compra</Link>  
+                    ? <Link to={"/cart"}><Button variant="secondary">Finalizar Compra</Button></Link>  
                     : <ItemCount item={item.id} stock={item.stock} initial={1} onAdd={itemsSeleccionados} />
                     }
-                </div>
-            </div>    
+                </Col>
+            </Row>    
         </Container> 
     );
 }

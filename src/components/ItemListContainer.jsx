@@ -4,19 +4,15 @@ import ItemList from "./ItemList";
 import { firestoreFetch } from "../utils/firebaseFetch";
 
 const ItemListContainer = () => {
-    const [datos, setDatos] = useState([]);
-    const { idCategory } = useParams();
+  const [datos, setDatos] = useState([]);
+  const { idCategory } = useParams();
 
-    useEffect(() => {
-        firestoreFetch(idCategory)
-            .then(result => setDatos(result))
-            .catch(error => console.log(error));
-    }, [idCategory]);
+  useEffect(() => {
+    firestoreFetch(idCategory)
+      .then((result) => setDatos(result))
+      .catch((error) => console.log(error));
+  }, [idCategory]);
 
-    return (
-        <span>
-            <ItemList items={datos} />
-        </span>
-    );
-}
+  return <ItemList items={datos} />;
+};
 export default ItemListContainer;
